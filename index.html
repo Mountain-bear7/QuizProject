@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Quiz-опрос-верстка и программирование</title>
+</head>
+<body>
+    <div class="quiz">
+        <div id="title" class="quiz__title">Теория вероятностей</div>
+        <div class="quiz__progress-wrap">
+            <div class="quiz__progress">
+                <div id="progress-fill" class="quiz__progress-fill"></div>
+            </div>
+            <div class="quiz__progress-questions">
+                <strong id="question-number">1</strong>
+                <span>/</span>
+                <span id="total-questions">10</span> 
+            </div>
+        </div>
+        <div id="question-wrap" class="quiz__question">
+            <strong id="question-position">1</strong>
+            <span id="question">Как научиться быстро программировать?</span>
+        </div>
+        <div id="answers" class="quiz__answers">
+            <div class="quiz__answer quiz__answer_valid">Вариант 1</div>
+            <div class="quiz__answer">Вариант 2</div>
+            <div class="quiz__answer quiz__answer_invalid">Вариант 3</div>
+            <div class="quiz__answer">Вариант 4</div>
+        </div>
+        <div id="next" class="quiz__btn">Следующий вопрос</div>
+        <div id="result" class="quiz__result">
+            <div class="quiz__result-title"></div>
+            <div class="quiz__result-info">
+                <span>Верных ответов</span><br>
+                <span id="valid-answers" class="quiz__result-num"></span>
+                <span>из</span>
+                <span id="result-total-questions"></span>
+            </div>
+        </div>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

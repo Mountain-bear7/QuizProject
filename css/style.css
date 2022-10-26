@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    /*Colors*/
+    --gradient: linear-gradient(
+    to right bottom, 
+    #a188fc, 
+    #6fcafe
+    );
+    --gradient_2: linear-gradient(
+    to left bottom, 
+    #84d1ee, 
+    #9e70dc
+    );
+    --gradient_3: linear-gradient(
+    to right bottom, 
+    rgb(1 100 149 / 30%),
+    rgb(35 125 170 / 30%)
+    );
+    --gradient_4: linear-gradient(
+    to right bottom, 
+    rgb(1 100 149 / 50%),
+    rgb(35 125 170 / 50%)
+    );
+    --gradient_5: linear-gradient(
+        to left bottom, 
+        rgb(255 41 244),
+        rgb(255 157 0)
+        );
+    --glass_bg: rgba(255, 255, 255, 0.3);
+    
+    /*Size*/
+    --pading_block: 8px 12px;
+    --radius: 18px;
+
+    /*Other*/
+    --border: 1px solid rgb(0 0 0 / 21%);
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient( to right, #844cab, #6b78d8, #94dcdf);
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.quiz {
+    width: 600px;
+    min-height: 560px;
+    background: var(--gradient);
+    padding: 32px;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+}
+.quiz__title {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+.quiz__progress-wrap {
+    display: flex;
+    align-items: center;
+    padding: var(--pading_block);
+    border-radius: 20px;
+    background-color: var(--glass_bg);
+    margin-bottom: 64px;
+}
+.quiz__progress {
+    --size: 16px;
+    flex-grow: 1;
+    height: var(--size);
+    border-radius: var(--size);
+    background-color: #68c7de;
+    border: var(--border);
+    margin-right: 16px;
+    position: relative;
+}
+.quiz__progress-fill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    border-radius: var(--size);
+    background: var(--gradient_2);
+    transition: width 0.5s ease-in-out;
+}
+.quiz__progress-questions {
+    font-weight: 300;
+    font-size: 18px;
+}
+.quiz__progress-questions strong{
+    font-weight: 700;
+}
+.quiz__progress-questions *:not(:last-child){
+    margin-right: 2px;
+}
+.quiz__progress-questions *:nth-child(2){
+    opacity: 0.3;
+}
+.quiz__question {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+.quiz__question strong{
+    margin-right: 4px;
+}
+.quiz__answers {
+    background: var(--glass_bg);
+    padding: 12px;
+    border-radius: var(--radius);
+}
+.quiz__answer {
+    cursor: pointer;
+    padding: var(--pading_block);
+    background: var(--gradient_3);
+    color: white;
+    border-radius: var(--radius);
+    font-weight: 300;
+    line-height: 1.2em;
+}
+.quiz__answer:not(:last-child){
+    margin-bottom: 12px;
+}
+.quiz__answer_valid,
+.quiz__answer_invalid {
+    --size: 28px;
+    position: relative;  
+    border: var(--border);
+    background: var(--gradient_4);
+    padding-right: calc(var(--size) + 16px);
+}
+.quiz__answer_valid::after,
+.quiz__answer_invalid::after{
+    content: '\2713';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    margin-top: calc(var(--size) / -2);
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+    background: var(--gradient_2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+
+}
+.quiz__answer_invalid::after{
+    content: '\00D7';
+    background: var(--gradient_5);
+}
+
+.quiz__btn {
+    cursor: pointer;
+    background: var(--gradient_2);
+    border: var(--border);
+    display: inline-block;
+    margin: 24px auto 0;
+    border-radius: 100px;
+    padding: 10px 32px;
+    font-size: 18px;
+    font-weight: 350;
+}
+.quiz__btn_disable{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.quiz__result {
+    display: none;
+    flex-grow: 1;
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.quiz__result-title {
+    font-size: 120px;
+    line-height: 1em;
+    margin-bottom: 12px;
+}
+.quiz__result-info {
+    font-size: 32px;
+    font-weight: 200;
+}
+.quiz__result-num{
+    font-weight: 500;
+    font-size: 48px;
+}
